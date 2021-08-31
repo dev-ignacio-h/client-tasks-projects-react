@@ -1,4 +1,5 @@
 import NewProject from '../projects/NewProject';
+import ListProjects from '../projects/ListProjects';
 
 const Sidebar = () => {
   return (
@@ -9,6 +10,7 @@ const Sidebar = () => {
       <NewProject />
       <div className="proyectos">
         <h2>Tus Proyectos</h2>
+        <ListProjects />
       </div>
     </aside>
   );
