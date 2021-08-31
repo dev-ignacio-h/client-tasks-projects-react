@@ -3,19 +3,19 @@ import { Link } from 'react-router-dom';
 
 const Login = () => {
   // State para iniciar sesión
-  const [usuario, guardarUsuario] = useState({
+  const [user, setUser] = useState({
     email: '',
     password: ''
   });
 
-  const { email, password } = usuario;
+  const { email, password } = user;
 
   const onChange = (e) => {
-    // guardarUsuario({
-    //   ...usuario,
+    // setUser({
+    //   ...user,
     //   [e.target.name]: e.target.value
     // })
-    guardarUsuario((prevState) => {
+    setUser((prevState) => {
       return {
         ...prevState,
         [e.target.name]: e.target.value

@@ -3,21 +3,21 @@ import { Link } from 'react-router-dom';
 
 const Register = () => {
   // State para iniciar sesión
-  const [usuario, guardarUsuario] = useState({
-    nombre: '',
+  const [user, setUser] = useState({
+    name: '',
     email: '',
     password: '',
-    confirmar: ''
+    confirm: ''
   });
 
-  const { nombre, email, password, confirmar } = usuario;
+  const { name, email, password, confirm } = user;
 
   const onChange = (e) => {
-    // guardarUsuario({
-    //   ...usuario,
+    // setUser({
+    //   ...user,
     //   [e.target.name]: e.target.value
     // })
-    guardarUsuario((prevState) => {
+    setUser((prevState) => {
       return {
         ...prevState,
         [e.target.name]: e.target.value
@@ -36,18 +36,18 @@ const Register = () => {
   };
 
   return (
-    <div className="form-usuario">
+    <div className="form-user">
       <div className="contenedor-form sombra-dark">
         <h1>Crear cuenta</h1>
         <form onSubmit={onSubmit}>
           <div className="campo-form">
-            <label htmlFor="nombre">Nombre</label>
+            <label htmlFor="name">name</label>
             <input
               type="text"
-              id="nombre"
-              name="nombre"
-              value={nombre}
-              placeholder="Tu Nombre"
+              id="name"
+              name="name"
+              value={name}
+              placeholder="Tu name"
               onChange={onChange}
             />
           </div>
@@ -74,12 +74,12 @@ const Register = () => {
             />
           </div>
           <div className="campo-form">
-            <label htmlFor="confirmar">Confirmar Password</label>
+            <label htmlFor="confirm">confirm Password</label>
             <input
               type="password"
-              id="confirmar"
-              name="confirmar"
-              value={confirmar}
+              id="confirm"
+              name="confirm"
+              value={confirm}
               placeholder="Repite tu password"
               onChange={onChange}
             />

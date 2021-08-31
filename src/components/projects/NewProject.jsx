@@ -4,22 +4,22 @@ import ProjectContext from '../../context/projects/projectContext';
 const NewProject = () => {
   // obtener el state del formulario
   const projectsContext = useContext(ProjectContext);
-  const { form } = projectsContext;
+  const { form, showForm } = projectsContext;
 
   // state para proyecto
-  const [proyecto, guardarProyecto] = useState({
-    nombre: ''
+  const [project, setProject] = useState({
+    name: '',
   });
 
   // extraer nombre de proyecto
-  const { nombre } = proyecto;
+  const { name } = project;
 
   // lee los cont3enidos del input
-  const onChangeProyecto = (e) => {
-    guardarProyecto((prevState) => {
+  const onChangeProject = (e) => {
+    setProject((prevState) => {
       return {
         ...prevState,
-        [e.target.name]: e.target.value
+        [e.target.name]: e.target.value,
       };
     });
   };
@@ -27,7 +27,6 @@ const NewProject = () => {
   // submit
   const onSubmitProyecto = (e) => {
     e.preventDefault();
-
     // validar el proyecto
 
     // agregar al state
@@ -35,9 +34,11 @@ const NewProject = () => {
     // Reiniciar el form
   };
 
+  const showFormHandler = () => showForm();
+
   return (
     <>
-      <button type="button" className="btn btn-block">
+      <button type="button" className="btn btn-block" onClick={showFormHandler}>
         Nuevo Proyecto
       </button>
       {form && (
@@ -46,9 +47,9 @@ const NewProject = () => {
             type="text"
             className="input-text"
             placeholder="Nombre Proyecto"
-            name="nombre"
-            value={nombre}
-            onChange={onChangeProyecto}
+            name="name"
+            value={name}
+            onChange={onChangeProject}
           />
           <input
             type="submit"
